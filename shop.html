@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1><a href="index.html" style="text-decoration: none;">ZyraHost</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="https://uptime.zyrahost.fr" target="_blank">Status</a></li>
+                    <li id="authLinks" class="auth-links"></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <div class="container">
+            <div class="shop-hero-content">
+                <h1 class="shop-title">Notre Shop</h1>
+                <p class="shop-subtitle">Choisissez le service adapté à vos besoins</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Categories -->
+    <section class="shop-categories">
+        <div class="container">
+            <div class="categories-grid">
+                <!-- Minecraft -->
+                <a href="shop-minecraft.html" class="category-card minecraft-category">
+                    <div class="category-video">
+                        <video autoplay muted loop playsinline>
+                            <source src="https://louisoff84.github.io/ZyrawebV2/0515.mp4" type="video/mp4">
+                        </video>
+                        <div class="category-overlay"></div>
+                    </div>
+                    <div class="category-content">
+                        <div class="category-icon">
+                            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2"/>
+                                <path d="M6 6h4v4H6z"/>
+                                <path d="M14 6h4v4h-4z"/>
+                                <path d="M6 14h4v4H6z"/>
+                                <path d="M14 14h4v4h-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Minecraft</h3>
+                        <p>Serveurs Java & Bedrock</p>
+                        <div class="category-price">À partir de 2.99€/mois</div>
+                        <span class="category-cta">Voir les offres →</span>
+                    </div>
+                </a>
+
+                <!-- Discord Bot -->
+                <a href="shop-discord.html" class="category-card discord-category">
+                    <div class="category-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="9" cy="9" r="1.5"/>
+                            <circle cx="15" cy="9" r="1.5"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        </svg>
+                    </div>
+                    <h3>Discord Bot</h3>
+                    <p>Hébergement de bots</p>
+                    <div class="category-price">À partir de 1.99€/mois</div>
+                    <span class="category-cta">Voir les offres →</span>
+                </a>
+
+                <!-- Uptime Kuma -->
+                <a href="shop-uptime.html" class="category-card uptime-category">
+                    <div class="category-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Uptime Kuma</h3>
+                    <p>Monitoring de services</p>
+                    <div class="category-price">À partir de 0.99€/mois</div>
+                    <span class="category-cta">Voir les offres →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="shop-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Pourquoi nous choisir ?</h2>
+                <p>Des avantages exclusifs pour tous nos clients</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Anti-DDoS Pro</h3>
+                    <p>Protection avancée contre les attaques DDoS</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>99.9% Uptime</h3>
+                    <p>Garantie de disponibilité de vos services</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <h3>Support 24/7</h3>
+                    <p>Assistance disponible à tout moment</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2"/>
+                            <rect x="2" y="14" width="20" height="8" rx="2"/>
+                        </svg>
+                    </div>
+                    <h3>NVMe SSD</h3>
+                    <p>Stockage ultra-rapide pour performances maximales</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ZyraHost</h3>
+                    <p>Votre hébergement du futur pour les jeux vidéo</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="shop-minecraft.html">Minecraft</a></li>
+                            <li><a href="shop-discord.html">Discord</a></li>
+                            <li><a href="shop-uptime.html">Uptime Kuma</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="https://discord.zyrahost.fr" target="_blank">Discord</a></li>
+                            <li><a href="https://uptime.zyrahost.fr" target="_blank">Statut</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ZyraHost. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
+
+

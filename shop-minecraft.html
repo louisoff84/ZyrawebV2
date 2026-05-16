@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Shop Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1><a href="index.html" style="text-decoration: none;">ZyraHost</a></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="https://uptime.zyrahost.fr" target="_blank">Status</a></li>
+                    <li id="authLinks" class="auth-links"></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Minecraft Shop Hero -->
+    <section class="minecraft-shop-hero">
+        <div class="hero-video">
+            <video autoplay muted loop playsinline>
+                <source src="https://louisoff84.github.io/ZyrawebV2/0515.mp4" type="video/mp4">
+            </video>
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Serveurs Minecraft</h1>
+                <p class="hero-subtitle">Performance optimale pour vos serveurs Java et Bedrock</p>
+                <div class="hero-cta">
+                    <a href="#plans" class="btn btn-primary">Voir les plans</a>
+                    <a href="index.html#contact" class="btn btn-secondary">Nous contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="minecraft-features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Fonctionnalités incluses</h2>
+                <p>Tout ce dont vous avez besoin pour votre serveur</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Démarrage en 30s</h3>
+                    <p>Votre serveur prêt instantanément</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Anti-DDoS Gaming</h3>
+                    <p>Protection spécialisée gaming</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💾</div>
+                    <h3>NVMe SSD</h3>
+                    <p>Stockage ultra-rapide</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎛️</div>
+                    <h3>Panel Pterodactyl</h3>
+                    <p>Contrôle total intuitif</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Auto Backup</h3>
+                    <p>Sauvegardes automatiques</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <h3>Mods & Plugins</h3>
+                    <p>Support Modrinth & CurseForge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section id="plans" class="pricing-plans">
+        <div class="container">
+            <div class="section-header">
+                <h2>Nos offres</h2>
+                <p>Choisissez le plan adapté à vos besoins</p>
+            </div>
+            <div class="plans-grid">
+                <!-- Starter Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Starter</h3>
+                        <div class="plan-price">
+                            <span class="price">2.99€</span>
+                            <span class="period">/mois</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ 2 GB RAM</li>
+                            <li>✓ 10 GB NVMe SSD</li>
+                            <li>✓ 1 vCPU</li>
+                            <li>✓ Anti-DDoS Basic</li>
+                            <li>✓ Panel Pterodactyl</li>
+                            <li>✓ Support par email</li>
+                        </ul>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="#" class="btn btn-outline">Commander</a>
+                    </div>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="plan-card featured">
+                    <div class="plan-badge">Populaire</div>
+                    <div class="plan-header">
+                        <h3>Pro</h3>
+                        <div class="plan-price">
+                            <span class="price">5.99€</span>
+                            <span class="period">/mois</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ 4 GB RAM</li>
+                            <li>✓ 25 GB NVMe SSD</li>
+                            <li>✓ 2 vCPU</li>
+                            <li>✓ Anti-DDoS Pro</li>
+                            <li>✓ Panel Pterodactyl</li>
+                            <li>✓ Support prioritaire</li>
+                            <li>✓ Auto Backup quotidien</li>
+                        </ul>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="#" class="btn btn-primary">Commander</a>
+                    </div>
+                </div>
+
+                <!-- Premium Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <div class="plan-price">
+                            <span class="price">11.99€</span>
+                            <span class="period">/mois</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ 8 GB RAM</li>
+                            <li>✓ 50 GB NVMe SSD</li>
+                            <li>✓ 4 vCPU</li>
+                            <li>✓ Anti-DDoS Enterprise</li>
+                            <li>✓ Panel Pterodactyl</li>
+                            <li>✓ Support VIP 24/7</li>
+                            <li>✓ Auto Backup horaire</li>
+                            <li>✓ IP dédiée</li>
+                        </ul>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="#" class="btn btn-outline">Commander</a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Enterprise</h3>
+                        <div class="plan-price">
+                            <span class="price">24.99€</span>
+                            <span class="period">/mois</span>
+                        </div>
+                    </div>
+                    <div class="plan-features">
+                        <ul>
+                            <li>✓ 16 GB RAM</li>
+                            <li>✓ 100 GB NVMe SSD</li>
+                            <li>✓ 8 vCPU</li>
+                            <li>✓ Anti-DDoS Enterprise</li>
+                            <li>✓ Panel Pterodactyl</li>
+                            <li>✓ Support dédié</li>
+                            <li>✓ Auto backup en temps réel</li>
+                            <li>✓ IP dédiée + sous-domaine</li>
+                        </ul>
+                    </div>
+                    <div class="plan-cta">
+                        <a href="#" class="btn btn-outline">Commander</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Supported Versions -->
+    <section class="supported-versions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Versions supportées</h2>
+                <p>De 1.8 à 1.21+, nous supportons tout</p>
+            </div>
+            <div class="versions-list">
+                <div class="version-item">Paper</div>
+                <div class="version-item">Spigot</div>
+                <div class="version-item">Bukkit</div>
+                <div class="version-item">Forge</div>
+                <div class="version-item">Fabric</div>
+                <div class="version-item">Velocity</div>
+                <div class="version-item">BungeeCord</div>
+                <div class="version-item">Bedrock</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ZyraHost</h3>
+                    <p>Votre hébergement du futur pour les jeux vidéo</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Shop</h4>
+                        <ul>
+                            <li><a href="shop.html">Tous les services</a></li>
+                            <li><a href="shop-minecraft.html">Minecraft</a></li>
+                            <li><a href="shop-discord.html">Discord</a></li>
+                            <li><a href="shop-uptime.html">Uptime Kuma</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="https://discord.zyrahost.fr" target="_blank">Discord</a></li>
+                            <li><a href="https://uptime.zyrahost.fr" target="_blank">Statut</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ZyraHost. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
+
+

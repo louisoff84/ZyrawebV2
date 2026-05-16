@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header"><h1><a href="index.html" style="text-decoration: none;">ZyraHost</a></h1></div>
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="#servers">Mes Serveurs</a></li>
+                    <li><a href="#tickets">Tickets Support</a></li>
+                    <li><a href="#invoices">Factures</a></li>
+                    <li><a href="#settings">Parametres</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="shop.html" class="btn btn-primary btn-full">Acheter un serveur</a>
+                <a href="logout.html" class="btn btn-outline btn-full">Deconnexion</a>
+            </div>
+        </aside>
+        <main class="dashboard-main">
+            <header class="dashboard-header">
+                <div class="header-left"><h2>Dashboard</h2><p id="welcomeMessage">Bienvenue !</p></div>
+                <div class="header-right"><div class="user-menu"><div class="user-avatar"><span id="userInitials">ZH</span></div><div class="user-info"><span class="user-name" id="userName">Utilisateur</span><span class="user-email" id="userEmail">email@example.com</span></div></div></div>
+            </header>
+            <section class="dashboard-stats">
+                <div class="stat-card"><div class="stat-content"><h3 id="serversCount">0</h3><p>Serveurs actifs</p></div></div>
+                <div class="stat-card"><div class="stat-content"><h3 id="ticketsCount">0</h3><p>Tickets ouverts</p></div></div>
+                <div class="stat-card"><div class="stat-content"><h3 id="invoicesCount">0</h3><p>Factures</p></div></div>
+                <div class="stat-card"><div class="stat-content"><h3>99.9%</h3><p>Uptime</p></div></div>
+            </section>
+            <section class="quick-actions">
+                <h3>Actions rapides</h3>
+                <div class="actions-grid">
+                    <a href="shop-minecraft.html" class="action-card"><span>Acheter Minecraft</span></a>
+                    <a href="shop-discord.html" class="action-card"><span>Acheter Discord Bot</span></a>
+                    <a href="shop-uptime.html" class="action-card"><span>Acheter Uptime Kuma</span></a>
+                    <a href="https://discord.zyrahost.fr" target="_blank" class="action-card"><span>Documentation</span></a>
+                </div>
+            </section>
+            <section id="servers" class="dashboard-section"><div class="section-header"><h3>Mes Serveurs</h3><a href="shop.html" class="btn btn-sm btn-primary">+ Nouveau serveur</a></div><div id="serversList"></div></section>
+            <section id="tickets" class="dashboard-section"><div class="section-header"><h3>Tickets Support</h3></div><div id="ticketsList"></div></section>
+            <section id="invoices" class="dashboard-section"><div class="section-header"><h3>Factures</h3></div><div id="invoicesList"></div></section>
+            <section id="settings" class="dashboard-section"><div class="section-header"><h3>Parametres du compte</h3></div><div class="settings-card"><div class="setting-item"><div class="setting-info"><h4>Nom d'utilisateur</h4><p id="settingsUsername"></p></div></div><div class="setting-item"><div class="setting-info"><h4>Email</h4><p id="settingsEmail"></p></div></div><div class="setting-item"><div class="setting-info"><h4>Date d'inscription</h4><p id="settingsCreatedAt"></p></div></div></div></section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        function formatDate(value) {
+            const date = new Date(value);
+            return Number.isNaN(date.getTime()) ? '-' : date.toLocaleDateString('fr-FR');
+        }
+        function emptyState(title, text) {
+            return '<div class="empty-state"><h4>' + title + '</h4><p>' + text + '</p></div>';
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = getCurrentUser();
+            if (!user) {
+                window.location.href = 'login.html';
+                return;
+            }
+            const servers = getUserServers();
+            const tickets = getUserTickets();
+            const invoices = getUserInvoices();
+            document.getElementById('welcomeMessage').textContent = 'Bienvenue, ' + user.username + ' !';
+            document.getElementById('userInitials').textContent = user.username.slice(0, 2).toUpperCase();
+            document.getElementById('userName').textContent = user.username;
+            document.getElementById('userEmail').textContent = user.email;
+            document.getElementById('settingsUsername').textContent = user.username;
+            document.getElementById('settingsEmail').textContent = user.email;
+            document.getElementById('settingsCreatedAt').textContent = formatDate(user.createdAt);
+            document.getElementById('serversCount').textContent = servers.length;
+            document.getElementById('ticketsCount').textContent = tickets.length;
+            document.getElementById('invoicesCount').textContent = invoices.length;
+            document.getElementById('serversList').innerHTML = servers.length ? servers.map(function (server) { return '<div class="server-card"><div class="server-info"><div class="server-details"><h4>' + server.name + '</h4><span class="server-type">' + server.type + '</span></div></div><div class="server-status"><span class="status-badge status-' + server.status + '">' + server.status + '</span></div></div>'; }).join('') : emptyState('Aucun serveur', 'Vous n\'avez pas encore de serveur.');
+            document.getElementById('ticketsList').innerHTML = tickets.length ? tickets.map(function (ticket) { return '<div class="ticket-card"><div class="ticket-info"><h4>' + ticket.subject + '</h4><span class="ticket-date">' + formatDate(ticket.createdAt) + '</span></div><div class="ticket-status"><span class="status-badge status-' + ticket.status + '">' + ticket.status + '</span></div><div class="ticket-priority"><span class="priority-badge priority-' + ticket.priority + '">' + ticket.priority + '</span></div></div>'; }).join('') : emptyState('Aucun ticket', 'Vous n\'avez pas encore de ticket de support.');
+            document.getElementById('invoicesList').innerHTML = invoices.length ? invoices.map(function (invoice) { return '<div class="invoice-card"><div class="invoice-info"><h4>Facture #' + invoice.id + '</h4><span class="invoice-date">' + formatDate(invoice.createdAt) + '</span></div><div class="invoice-amount"><span class="amount">' + invoice.amount.toFixed(2) + ' EUR</span></div><div class="invoice-status"><span class="status-badge status-' + invoice.status + '">' + invoice.status + '</span></div></div>'; }).join('') : emptyState('Aucune facture', 'Vous n\'avez pas encore de facture.');
+        });
+    </script>
+</body>
+</html>

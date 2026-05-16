@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Inscription</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo"><h1><a href="index.html" style="text-decoration: none;">ZyraHost</a></h1></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="https://uptime.zyrahost.fr" target="_blank">Status</a></li>
+                    <li><a href="login.html" class="btn btn-primary">Se connecter</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>Inscription</h1>
+                <p>Creez votre compte client</p>
+            </div>
+            <div id="registerAlert"></div>
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" required placeholder="Choisissez un nom d'utilisateur">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="Entrez votre adresse email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" required placeholder="Choisissez un mot de passe (8 caracteres min)">
+                </div>
+                <div class="form-group">
+                    <label for="confirm_password">Confirmer le mot de passe</label>
+                    <input type="password" id="confirm_password" required placeholder="Confirmez votre mot de passe">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Creer mon compte</button>
+            </form>
+            <div class="auth-footer">
+                <p>Vous avez deja un compte ? <a href="login.html">Se connecter</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const alertBox = document.getElementById('registerAlert');
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            if (password !== confirmPassword) {
+                alertBox.className = 'alert alert-error';
+                alertBox.textContent = 'Les mots de passe ne correspondent pas.';
+                return;
+            }
+            const result = register(document.getElementById('username').value, document.getElementById('email').value, password);
+            alertBox.className = result.success ? 'alert alert-success' : 'alert alert-error';
+            alertBox.textContent = result.message;
+            if (result.success) {
+                window.setTimeout(function () { window.location.href = 'login.html'; }, 900);
+            }
+        });
+    </script>
+</body>
+</html>

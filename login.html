@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Connexion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo"><h1><a href="index.html" style="text-decoration: none;">ZyraHost</a></h1></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="https://uptime.zyrahost.fr" target="_blank">Status</a></li>
+                    <li><a href="register.html" class="btn btn-primary">S'inscrire</a></li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h1>Connexion</h1>
+                <p>Connectez-vous a votre espace client</p>
+            </div>
+            <div id="loginAlert"></div>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur ou Email</label>
+                    <input type="text" id="username" required placeholder="Entrez votre nom d'utilisateur ou email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" required placeholder="Entrez votre mot de passe">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+            </form>
+            <div class="auth-footer">
+                <p>Vous n'avez pas de compte ? <a href="register.html">S'inscrire</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const result = login(document.getElementById('username').value, document.getElementById('password').value);
+            const alertBox = document.getElementById('loginAlert');
+            alertBox.className = result.success ? 'alert alert-success' : 'alert alert-error';
+            alertBox.textContent = result.message;
+            if (result.success) {
+                window.setTimeout(function () { window.location.href = 'dashboard.html'; }, 700);
+            }
+        });
+    </script>
+</body>
+</html>
