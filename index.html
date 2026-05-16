@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZyraHost - Hébergement de Serveurs de Jeux</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <h1>ZyraHost</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="https://uptime.zyrahost.fr" target="_blank">Status</a></li>
+                    <li class="auth-links" id="authLinks">
+                        <!-- Will be populated by JavaScript -->
+                    </li>
+                </ul>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero pattern-animated">
+        <div class="particles" id="particles"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title text-gradient-animated">Serveurs de Jeux Ultra-Rapides</h1>
+                <p class="hero-subtitle">Hébergez vos serveurs Minecraft, NovaLife FiveM et bots Discord ! Performance garantie avec Pterodactyl, anti-DDoS et 99.9% uptime.</p>
+                <div class="hero-cta">
+                    <a href="#services" class="btn btn-primary ripple glow">Découvrir nos services</a>
+                    <a href="#contact" class="btn btn-secondary ripple">Nous contacter</a>
+                </div>
+                <div class="hero-feature">
+                    <div class="feature-badge neon-border">
+                        <span class="badge-icon floating">🎮</span>
+                        <span class="badge-text">Panel Pterodactyl</span>
+                    </div>
+                    <p>Contrôle total, backup auto, mods gratuits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services scroll-animate">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-gradient-animated">Jeux Disponibles</h2>
+                <p>Support complet pour les jeux les plus populaires avec installation instantanée</p>
+            </div>
+            <div class="services-grid">
+                <!-- Uptime Kuma -->
+                <a href="shop-uptime.html" class="service-card spotlight stagger-1">
+                    <div class="service-icon icon-bounce">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <h3>Uptime Kuma</h3>
+                    <p>Créez votre uptime en quelques minutes cette installation peut prendre du temps désolé.</p>
+                    <ul class="service-features">
+                        <li>Uptime Kuma v1.23.14</li>
+                        <li>Installation automatique</li>
+                        <li>Support 24/7 sur le Discord</li>
+                        <li>L'interface vient totalement de Kuma.</li>
+                    </ul>
+                </a>
+
+                <!-- Minecraft -->
+                <a href="shop-minecraft.html" class="service-card featured minecraft-card glow-purple stagger-2">
+                    <video class="video-background" autoplay muted loop playsinline>
+                        <source src="https://storage.craftpick.fr/zyra/0515.mp4" type="video/mp4">
+                    </video>
+                    <div class="service-content">
+                        <div class="service-icon icon-bounce">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2"/>
+                                <path d="M6 6h4v4H6z"/>
+                                <path d="M14 6h4v4h-4z"/>
+                                <path d="M6 14h4v4H6z"/>
+                                <path d="M14 14h4v4h-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Minecraft</h3>
+                        <p>Serveurs Minecraft Java et Bedrock avec performance optimale. Support complet pour mods, plugins, et toutes les versions de 1.8 à 1.21+.</p>
+                        <ul class="service-features">
+                            <li>Support 1.8+ jusqu'à 1.21+</li>
+                            <li>Paper/Spigot/Bukkit/Forge/Fabric</li>
+                            <li>Mods depuis Modrinth et CurseForge</li>
+                            <li>Démarrage en 30 secondes</li>
+                        </ul>
+                    </div>
+                </a>
+
+                <!-- Discord Bot -->
+                <a href="shop-discord.html" class="service-card spotlight stagger-3">
+                    <div class="service-icon icon-bounce">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="9" cy="9" r="1.5"/>
+                            <circle cx="15" cy="9" r="1.5"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                        </svg>
+                    </div>
+                    <h3>Discord Bot</h3>
+                    <p>Hébergement de bots Discord avec support JavaScript/Python. API complète, bases de données intégrées et 24/7 uptime.</p>
+                    <ul class="service-features">
+                        <li>Support JavaScript/Python</li>
+                        <li>Base de données gratuite</li>
+                        <li>+3 backups gratuit</li>
+                        <li>Démarrage en 30 secondes</li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Advantages Section -->
+    <section class="advantages scroll-animate">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-gradient-animated">Avantages Gaming</h2>
+                <p>Performance optimisée et outils spécialisés pour les meilleurs serveurs de jeux</p>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-item spotlight stagger-1">
+                    <div class="advantage-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Panel Pterodactyl</h3>
+                    <p>Contrôle total de votre serveur avec interface moderne et intuitive</p>
+                </div>
+                <div class="advantage-item spotlight stagger-2">
+                    <div class="advantage-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Anti-DDoS Gaming</h3>
+                    <p>Protection spécialisée contre les attaques DDoS ciblées gaming</p>
+                </div>
+                <div class="advantage-item spotlight stagger-3">
+                    <div class="advantage-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Installation Rapide</h3>
+                    <p>Installation instantanée du serveur en moins de 1 minute</p>
+                </div>
+                <div class="advantage-item spotlight stagger-4">
+                    <div class="advantage-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2"/>
+                            <rect x="2" y="14" width="20" height="8" rx="2"/>
+                            <line x1="6" y1="6" x2="6.01" y2="6"/>
+                            <line x1="6" y1="18" x2="6.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>NVMe SSD</h3>
+                    <p>Stockage ultra-rapide pour des temps de chargement optimaux</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact scroll-animate">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-gradient-animated">Contactez-nous</h2>
+                <p>Une question ? Notre équipe est là pour vous aider</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <h3>Email</h3>
+                    <p>contact@zyrahost.fr</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Adresse</h3>
+                    <p>Paris, France</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon icon-bounce">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3>Pterodactyl</h3>
+                    <p>ptero.zyrahost.fr</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>ZyraHost</h3>
+                    <p>Votre hébergement du futur pour les jeux vidéo</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Jeux</h4>
+                        <ul>
+                            <li><a href="#services">Minecraft</a></li>
+                            <li><a href="#services">Discord</a></li>
+                            <li><a href="#services">TeamSpeak</a></li>
+                            <li><a href="#services">NovaLife</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Entreprise</h4>
+                        <ul>
+                            <li><a href="#apropos">À propos</a></li>
+                            <li><a href="https://ptero.zyrahost.fr" target="_blank">Pterodactyl</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="https://discord.zyrahost.fr" target="_blank">Centre d'aide</a></li>
+                            <li><a href="https://uptime.zyrahost.fr" target="_blank">Statut des serveurs</a></li>
+                            <li><a href="https://discord.zyrahost.fr" target="_blank">Discord</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ZyraHost. Tous droits réservés. | Site web par ZyraHost</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
